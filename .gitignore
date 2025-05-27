@@ -21,4 +21,5 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-contact-react-laravel-breeze.md
+contact-react-laravel-breeze-backend.md
+contact-react-laravel-breeze-frontend.md
