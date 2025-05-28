@@ -2,23 +2,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @import "tailwindcss";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 @source "../views";
 
 @theme {
   --font-dm-sans: DM Sans, sans-serif;
   --font-beba-new: "Bebas Neue", sans-serif;
+  --color-primary-bg: #0d0d0d;
+  --color-main-color:#FFDD95;
+  --color-black:#1a1a1a;
+  --color-light-black:#222;
+  --color-light-white: #aaa;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-
   body {
     font-family: "DM Sans", serif;
-    @apply dark:bg-primary dark:text-secondary;
+    @apply bg-primary-bg  text-light-white;
   }
 }
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 100% 50%,
+    transparent 30%,
+    rgba(0, 0, 0, 0.9) 65%
+  );
+  z-index: -1;
+}
+@media (max-width:450px){
+  .hero .slide::before {
+    background: rgba(0, 0, 0, .7);
+  }
+}
+
+.slide__content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -126,4 +158,6 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+
+
 
