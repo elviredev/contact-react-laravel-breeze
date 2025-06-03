@@ -39,7 +39,17 @@ const ContactModal = ({ showModal, modalType, contact, onCloseModal }: PropsModa
         notes: contact.notes,
       })
     } else if(modalType === 'create') {
-      reset()
+      setData({
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone: '',
+        address: '',
+        city: '',
+        postal_code: '',
+        country: '',
+        notes: '',
+      })
     }
   }, [contact, modalType, showModal])
 
@@ -133,7 +143,7 @@ const ContactModal = ({ showModal, modalType, contact, onCloseModal }: PropsModa
     <Dialog open={showModal} onOpenChange={handleCloseModal}>
       <DialogContent className="max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-main-color text-xl uppercase text-center mb-4">
+          <DialogTitle className="text-main-color text-xl uppercase text-center mt-6 sm:mt-0">
             {modalType === 'create' ? 'Nouveau contact' : 'Modifier contact'}
           </DialogTitle>
         </DialogHeader>

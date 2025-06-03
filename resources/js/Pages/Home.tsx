@@ -1,6 +1,6 @@
 import { PageProps } from '@/types';
 import { Head, Link } from '@inertiajs/react';
-import {NotebookPen, BarChart2, ChevronRight, LogOut} from 'lucide-react';
+import { NotebookPen, BarChart2, ChevronRight, LogOut } from 'lucide-react';
 import { Button } from '@/Components/ui/button';
 
 const Home = ({ auth }: PageProps) => {
