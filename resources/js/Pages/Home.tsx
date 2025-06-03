@@ -1,6 +1,6 @@
 import { PageProps } from '@/types';
 import { Head, Link } from '@inertiajs/react';
-import {NotebookPen, BarChart2, ArrowRight, ChevronRight} from 'lucide-react';
+import {NotebookPen, BarChart2, ChevronRight, LogOut} from 'lucide-react';
 import { Button } from '@/Components/ui/button';
 
 const Home = ({ auth }: PageProps) => {
@@ -38,9 +38,9 @@ const Home = ({ auth }: PageProps) => {
                     method="post"
                     as="button"
                     href={route('logout')}
-                    className="text-white hover:text-main-color text-sm sm:text-base"
+                    className="text-main-color hover:text-white text-sm sm:text-base"
                   >
-                    Déconnexion
+                    <LogOut />
                   </Link>
                 </>
               ) : (

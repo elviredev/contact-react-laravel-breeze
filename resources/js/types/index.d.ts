@@ -36,6 +36,10 @@ export interface PropsSinglePageContact {
   contact: Contact
 }
 
+export interface PropsDashboard extends PageProps {
+  contacts: Contact[];
+}
+
 export type PageProps<
     T extends Record<string, unknown> = Record<string, unknown>,
 > = T & {

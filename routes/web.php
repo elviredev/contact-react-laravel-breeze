@@ -14,6 +14,7 @@ Route::get('/', function () {
 
 // Les routes pour les contacts
 Route::middleware(['auth', 'verified'])->group(function () {
+  // Dashboard
   Route::get('/dashboard', function() {
     $user = Auth::user();
     return Inertia::render('Dashboard', [
@@ -21,7 +22,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     ]);
   })->name('dashboard');
 
-  // APIs Rest Full
+  // Contacts APIs Rest Full
   Route::resource('contacts', ContactController::class);
 
   // Les routes profile
