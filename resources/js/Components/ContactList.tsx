@@ -21,7 +21,7 @@ const ContactList = ({contacts, onEdit}: PropsListContacts) => {
 
   return (
     <div className="rounded-md border overflow-x-auto">
-      <Table className="min-w-max w-full">
+      <Table className="min-w-full hidden md:table">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">Nom</TableHead>
@@ -77,6 +77,59 @@ const ContactList = ({contacts, onEdit}: PropsListContacts) => {
           ))}
         </TableBody>
       </Table>
+
+      {/* Version Mobile*/}
+      <div className="md:hidden space-y-4 p-2">
+        {contacts.map((contact) => (
+          <div key={contact.id} className="border rounded-lg p-4 shadow-sm space-y-2 text-sm bg-light-white">
+            <div className="text-black">
+              <span className="font-semibold">Nom: </span>
+              {contact.first_name} {contact.last_name}
+            </div>
+            <div className="text-black">
+              <span className="font-semibold">Email: </span>
+              {contact.email}
+            </div>
+            <div className="text-black">
+              <span className="font-semibold">Téléphone: </span>
+              {contact.phone}
+            </div>
+            <div className="text-black">
+              <span className="font-semibold">Ville: </span>
+              {contact.city}
+            </div>
+            <div className="flex justify-end space-x-2">
+              {/* Boutons */}
+              <Button
+                className="hover:bg-main-color"
+                variant="default"
+                size="icon"
+                asChild
+              >
+                <Link href={route('contacts.show', contact.id)}>
+                  <Eye className="text-light-black" />
+                </Link>
+              </Button>
+              <Button
+                className="cursor-pointer hover:bg-main-color"
+                variant="default"
+                size="icon"
+                onClick={() => onEdit(contact)}
+              >
+                <Edit className="w-4 h-4 text-light-black" />
+              </Button>
+              <Button
+                className="cursor-pointer hover:bg-red-500 hover:[&>svg]:text-black"
+                variant="default"
+                size="icon"
+                onClick={() => handleDelete(contact)}
+              >
+                <Trash2 className="w-4 h-4 text-red-500" />
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
