@@ -32,7 +32,7 @@ export interface PropsListContacts {
   onEdit: (contact: Contact) => void;
 }
 
-export interface PropsSinglePageContact {
+export interface PropsSinglePage {
   contact: Contact
 }
 
